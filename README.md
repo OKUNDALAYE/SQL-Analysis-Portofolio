@@ -94,8 +94,7 @@ FROM campaigndata
 GROUP BY Location
 ORDER BY totalimpressions DESC
 LIMIT 3;
-
-sql
+```
  
 ###### New York is the location with the highest Impressions at 221.35 million impressions followed by Miami with 221.34 million impressions and Chicago is the least of the top 3 locations with 219 million impressions.
 
