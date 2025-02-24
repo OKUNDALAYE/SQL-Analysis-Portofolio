@@ -9,28 +9,30 @@
 - [Analysis &  Query Writing](#Analysis-&-Query-Writing)
 - [Conclusion](#Conclusion)
 ## Introduction
-## In the competitive landscape of digital marketing, companies are increasingly leveraging data to fine-tune their advertising strategies and maximize their return on investment (ROI). This report explores the performance of digital advertising campaigns across various platforms using SQL to analyze key metrics. By assessing variables such as impressions, clicks, conversion rates, acquisition costs, and ROI, we aim to uncover patterns that can help improve campaign performance. Through this analysis, we will provide valuable insights on optimizing ad spend, identifying high-performing channels, and determining the most cost-effective campaigns.
+###### In the competitive landscape of digital marketing, companies are increasingly leveraging data to fine-tune their advertising strategies and maximize their return on investment (ROI). This report explores the performance of digital advertising campaigns across various platforms using SQL to analyze key metrics. By assessing variables such as impressions, clicks, conversion rates, acquisition costs, and ROI, we aim to uncover patterns that can help improve campaign performance. Through this analysis, we will provide valuable insights on optimizing ad spend, identifying high-performing channels, and determining the most cost-effective campaigns.
 
 ## Objectives
-1.	To familiarize with the dataset, review its structure, and identify key variables crucial for analyzing digital marketing campaigns.
-2.	To calculate essential metrics like click-through rates (CTR), total impressions, conversions, and cost per conversion, allowing for performance evaluation.
-3.	To rank campaigns by their effectiveness, focusing on ROI, conversion rates, and engagement scores to determine the most successful campaigns.
-4.	To identify the top-performing channels by analyzing total conversions and impressions, providing a clear understanding of the most effective advertising platforms.
-5.	To evaluate and compare the cost-effectiveness of campaigns to ensure optimal budget allocation and maximize returns.
-6.	To provide actionable recommendations based on the data analysis to enhance future digital marketing strategies.
+###### 1.	To familiarize with the dataset, review its structure, and identify key variables crucial for analyzing digital marketing campaigns.
+###### 2.	To calculate essential metrics like click-through rates (CTR), total impressions, conversions, and cost per conversion, allowing for performance evaluation.
+###### 3.	To rank campaigns by their effectiveness, focusing on ROI, conversion rates, and engagement scores to determine the most successful campaigns.
+###### 4.	To identify the top-performing channels by analyzing total conversions and impressions, providing a clear understanding of the most effective advertising platforms.
+###### 5.	To evaluate and compare the cost-effectiveness of campaigns to ensure optimal budget allocation and maximize returns.
+###### 6.	To provide actionable recommendations based on the data analysis to enhance future digital marketing strategies.
 
 
 ## Tools
-The following tools were used for data retrieval, analysis, and documentation:
-•	Microsoft Excel for storing the dataset
-•	PostgreSQL for SQL query execution.
-•	Google Drive for storing SQL scripts and reports.
+###### The following tools were used for data retrieval, analysis, and documentation:
+###### •	Microsoft Excel for storing the dataset
+###### •	PostgreSQL for SQL query execution.
+###### •	Google Drive for storing SQL scripts and reports.
 
 ## Data Source
-As part of my internship at HNG, I was supplied with a Marketing Campaign Dataset in CSV format. To better understand the data, I first loaded it into SQL for exploration and analysis. This step allowed me to familiarize myself with the dataset structure, identify key metrics, and prepare for deeper insights. The goal of my analysis is to extract actionable insights that will guide stakeholders in optimizing their marketing strategies and ad spend.
+###### As part of my internship at HNG, I was supplied with a [Marketing Campaign Dataset](https://docs.google.com/spreadsheets/d/1LBGqmX9jT6HuJwHrVZXjIKPxqElkYFPg/edit?gid=751358393#gid=751358393) in CSV format. To better understand the data, I first loaded it into SQL for exploration and analysis. This step allowed me to familiarize myself with the dataset structure, identify key metrics, and prepare for deeper insights. The goal of my analysis is to extract actionable insights that will guide stakeholders in optimizing their marketing strategies and ad spend.
 
 ## Data Understanding
 Firstly I had to create a table in PostgreSQL called campaigndata to house my data and define the data types for the columns.
+![Create table](https://github.com/OKUNDALAYE/SQL-Analysis-Portofolio/blob/main/assets/images/Create%20table.PNG)
+
  Then I imported the data in SQL.
 After that, I had to review and inspect the dataset structure to understand available fields and data types and ensure that the data types (e.g., numeric, text, date) are appropriate for analysis.
  Based on the sample data provided and the available fields in the dataset, here's an overview:
