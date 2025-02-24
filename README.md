@@ -109,39 +109,71 @@ ORDER BY avgengagementscore DESC
 ```
  
 ###### On average, Men between 18-24 have the highest average engagement score (5.5150), meaning they interact the most with the marketing campaigns.
- Women between 25-34 come next with an engagement score of 5.4927, closely followed by Men 25-34 at 5.4918.
-All other ages group have an engagement score of 5.4868, suggesting that the overall audience has a relatively high interaction rate.
-Women between 35-44 have the lowest engagement score among the top five, at 5.4865, but the difference between groups is minimal
+ ###### Women between 25-34 come next with an engagement score of 5.4927, closely followed by Men 25-34 at 5.4918.
+###### All other ages group have an engagement score of 5.4868, suggesting that the overall audience has a relatively high interaction rate.
+###### Women between 35-44 have the lowest engagement score among the top five, at 5.4865, but the difference between groups is minimal
 
 5.	Calculate the Overall CTR (Click-Through Rate)
+   ```sql
+SELECT (SUM(clicks) * 100.0) / SUM(impressions) AS overallctr
+FROM campaigndata;
+
+```
  
-This indicates that for every 100 impressions, roughly 9.98 users clicked on the ad. This is a solid Click Through Rate, suggesting that the ads are relatively effective at driving user interaction compared to the industry average, where CTRs tend to hover around 2-3% for most digital platforms.
+###### This indicates that for every 100 impressions, roughly 9.98 users clicked on the ad. This is a solid Click Through Rate, suggesting that the ads are relatively effective at driving user interaction compared to the industry average, where CTRs tend to hover around 2-3% for most digital platforms.
 
 6.	Find the Most Cost-Effective Campaign
+```sql
+SELECT campaign_id, company, 
+    (CAST(REPLACE(REPLACE(acquisition_cost::TEXT, '$', ''), ',', '') AS NUMERIC) / (conversion_rate * clicks)) AS costperconversion
+FROM campaigndata
+ORDER BY costperconversion ASC;
+
+```
  
-Campaign with id 118451 from Alpha Innovations has the lowest cost per conversion at $34.22 which makes it thee most cost effective campaign.
-This means that for every successful conversion, Alpha Innovations spent approximately $34.22, making it the most efficient campaign.
-Alpha Innovations has three campaigns in the top six most cost-effective campaigns, 3 of the campaigns they ran were among the most cost effective. 
+###### Campaign with id 118451 from Alpha Innovations has the lowest cost per conversion at $34.22 which makes it thee most cost effective campaign.
+###### This means that for every successful conversion, Alpha Innovations spent approximately $34.22, making it the most efficient campaign.
+###### Alpha Innovations has three campaigns in the top six most cost-effective campaigns, 3 of the campaigns they ran were among the most cost effective. 
 
 7.	Find Campaigns with CTR Above a Threshold
+```sql
+SELECT 
+    campaign_id, 
+    company, 
+    (SUM(clicks) * 100.0) / SUM(impressions) AS ctr
+FROM campaigndata
+GROUP BY campaign_id, company
+HAVING (SUM(clicks) * 100.0) / SUM(impressions) > 5
+ORDER BY ctr DESC;
+
+```
  
-Campiagn with id 123375 had the highest click through rate at 99.2%. The top 10 campaigns shown have extremely high CTRs, ranging from 99.2% down to 96.9%. This suggests that these campaigns were very effective at getting people to click. 
-TechCorp appear 2 times and Alpha Innovations appear 3 times in the top 10, indicating they are running highly effective campaigns that generate high click-through rates.
+###### Campiagn with id 123375 had the highest click through rate at 99.2%. The top 10 campaigns shown have extremely high CTRs, ranging from 99.2% down to 96.9%. This suggests that these campaigns were very effective at getting people to click. 
+###### TechCorp appear 2 times and Alpha Innovations appear 3 times in the top 10, indicating they are running highly effective campaigns that generate high click-through rates.
 
 8.	Rank Channels by Total Conversions
+```sql
+SELECT
+    channel_used,
+    SUM(clicks * conversion_rate) AS totalconversions
+FROM campaigndata
+GROUP BY channel_used
+ORDER BY totalconversions DESC;
+
+```
  
-Email has the highest number of total conversions (1,485,393.65) and is ranked 1st. 
-Website and Google Ads have very similar total conversions and are ranked 2nd and 3rd, respectively. 
-YouTube and Instagram also have close total conversion numbers and are ranked 4th and 5th. 
-Facebook has the lowest number of conversions among the displayed channels and is ranked 6th.
-Email, Website, and Google Ads are the most effective channels for driving conversions.
+###### Email has the highest number of total conversions (1,485,393.65) and is ranked 1st. 
+###### Website and Google Ads have very similar total conversions and are ranked 2nd and 3rd, respectively. 
+###### YouTube and Instagram also have close total conversion numbers and are ranked 4th and 5th. 
+###### Facebook has the lowest number of conversions among the displayed channels and is ranked 6th.
+###### Email, Website, and Google Ads are the most effective channels for driving conversions.
 
 ## Conclusion
 ###### The analysis of the 200,005 campaigns provides valuable insights into the effectiveness of various digital marketing efforts. Key findings indicate that NextGen Systems achieved the highest Return on Investment (ROI) at 800%, demonstrating strong revenue generation. In terms of reach, New York, Miami, and Chicago led in impressions, with over 219 million impressions each.
-Engagement trends revealed that men aged 18-24 had the highest interaction with ads, closely followed by women aged 25-34. Overall, the audience engagement scores were consistently high across all age groups. The overall Click-Through Rate (CTR) stood at 9.98%, significantly exceeding industry averages, highlighting strong user interest in the ads.
-Cost-effectiveness analysis identified Alpha Innovations as the top performer, with a cost per conversion of $34.22. Additionally, TechCorp and Alpha Innovations ran some of the highest CTR campaigns, exceeding 96.9%, proving their ability to drive clicks effectively.
-Finally, Email emerged as the top channel for conversions, followed by Website and Google Ads, emphasizing the importance of direct marketing and search-driven strategies. Facebook, while ranking lowest in conversions, still played a role in the overall digital marketing mix.
-These insights offer a strategic direction for optimizing future campaigns by prioritizing high-performing channels, refining audience targeting, and leveraging cost-efficient strategies to maximize ROI and engagement.
+###### Engagement trends revealed that men aged 18-24 had the highest interaction with ads, closely followed by women aged 25-34. Overall, the audience engagement scores were consistently high across all age groups. The overall Click-Through Rate (CTR) stood at 9.98%, significantly exceeding industry averages, highlighting strong user interest in the ads.
+###### Cost-effectiveness analysis identified Alpha Innovations as the top performer, with a cost per conversion of $34.22. Additionally, TechCorp and Alpha Innovations ran some of the highest CTR campaigns, exceeding 96.9%, proving their ability to drive clicks effectively.
+###### Finally, Email emerged as the top channel for conversions, followed by Website and Google Ads, emphasizing the importance of direct marketing and search-driven strategies. Facebook, while ranking lowest in conversions, still played a role in the overall digital marketing mix.
+###### These insights offer a strategic direction for optimizing future campaigns by prioritizing high-performing channels, refining audience targeting, and leveraging cost-efficient strategies to maximize ROI and engagement.
 
 
 
