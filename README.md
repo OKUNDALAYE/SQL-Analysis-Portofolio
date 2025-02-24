@@ -75,9 +75,16 @@ ORDER BY totalimpressions DESC;
 
 ```
  
-There were 200,005 campaigns that were run in the data, that’s a lot of campaigns and 10,000 impressions was the highest impressions gotten.
+###### There were 200,005 campaigns that were run in the data, that’s a lot of campaigns and 10,000 impressions was the highest impressions gotten.
 
 2.	Identify the Campaign with the Highest ROI
+```sql
+SELECT campaign_id, company, roi
+FROM campaigndata
+ORDER BY ROI DESC
+LIMIT 1;
+
+```
  
 Campaign with the Id 168 had the highest ROI(Return on Investment) at 800% and the company that ran that campaign is NextGen Systems. This means that for every $1 spent, the campaign generated $8 in return.
 3.	Find the Top 3 Locations with the Most Impressions
