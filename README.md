@@ -1,13 +1,13 @@
 # Analysis of Campaign Performance Using SQL
 
 ## Table of Contents
-- [Introduction](Introduction)
-- [Objectives](Objectives)
-- [Tools](Tools)
-- [Data Source](Data-Source)
-- [Data Understanding](Data-Understanding)
-- [Analysis &  Query Writing](Analysis-&-Query-Writing)
-- [Conclusion](Conclusion)
+- [Introduction](#Introduction)
+- [Objectives](#Objectives)
+- [Tools](#Tools)
+- [Data Source](#Data-Source)
+- [Data Understanding](#Data-Understanding)
+- [Analysis &  Query Writing](#Analysis-&-Query-Writing)
+- [Conclusion](#Conclusion)
 ## Introduction
 ## In the competitive landscape of digital marketing, companies are increasingly leveraging data to fine-tune their advertising strategies and maximize their return on investment (ROI). This report explores the performance of digital advertising campaigns across various platforms using SQL to analyze key metrics. By assessing variables such as impressions, clicks, conversion rates, acquisition costs, and ROI, we aim to uncover patterns that can help improve campaign performance. Through this analysis, we will provide valuable insights on optimizing ad spend, identifying high-performing channels, and determining the most cost-effective campaigns.
 
