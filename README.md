@@ -86,14 +86,29 @@ LIMIT 1;
 
 ```
  
-Campaign with the Id 168 had the highest ROI(Return on Investment) at 800% and the company that ran that campaign is NextGen Systems. This means that for every $1 spent, the campaign generated $8 in return.
+###### Campaign with the Id 168 had the highest ROI(Return on Investment) at 800% and the company that ran that campaign is NextGen Systems. This means that for every $1 spent, the campaign generated $8 in return.
 3.	Find the Top 3 Locations with the Most Impressions
+```sql
+SELECT location, SUM(impressions) AS totalimpressions
+FROM campaigndata
+GROUP BY Location
+ORDER BY totalimpressions DESC
+LIMIT 3;
+
+sql
  
-New York is the location with the highest Impressions at 221.35 million impressions followed by Miami with 221.34 million impressions and Chicago is the least of the top 3 locations with 219 million impressions.
+###### New York is the location with the highest Impressions at 221.35 million impressions followed by Miami with 221.34 million impressions and Chicago is the least of the top 3 locations with 219 million impressions.
 
 4.	Calculate Average Engagement Score by Target Audience
+```sql
+SELECT target_audience, AVG(engagement_score) AS avgengagementscore
+FROM campaigndata
+GROUP BY target_audience
+ORDER BY avgengagementscore DESC
+
+```
  
-On average, Men between 18-24 have the highest average engagement score (5.5150), meaning they interact the most with the marketing campaigns.
+###### On average, Men between 18-24 have the highest average engagement score (5.5150), meaning they interact the most with the marketing campaigns.
  Women between 25-34 come next with an engagement score of 5.4927, closely followed by Men 25-34 at 5.4918.
 All other ages group have an engagement score of 5.4868, suggesting that the overall audience has a relatively high interaction rate.
 Women between 35-44 have the lowest engagement score among the top five, at 5.4865, but the difference between groups is minimal
